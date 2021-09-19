@@ -4,7 +4,24 @@ namespace SpriteKind {
 sprites.onCreated(SpriteKind.Enemy, function (sprite) {
     animation.loopFrames2(
     sprite,
-    assets.animation`assassin left`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     125,
     characterAnimations.rule(Predicate.MovingLeft)
     )
@@ -12,7 +29,24 @@ sprites.onCreated(SpriteKind.Enemy, function (sprite) {
     sprite.ay = 500
     animation.loopFrames2(
     sprite,
-    assets.animation`assassin right`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     125,
     characterAnimations.rule(Predicate.MovingRight)
     )
@@ -24,12 +58,29 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`pit`, function (sprite, locat
     game.over(false)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(assets.image`power kick`, mySprite, 50, 50)
+    projectile = sprites.createProjectileFromSprite(, mySprite, 50, 50)
     projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
     projectile.lifespan = 100
     animation.runImageAnimation(
     mySprite,
-    assets.animation`sc kick`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     125,
     false
     )
@@ -53,28 +104,79 @@ scene.onOverlapTile(SpriteKind.Projectile, assets.tile`boulder`, function (sprit
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
 controller.player2.onEvent(ControllerEvent.Connected, function () {
-    scene.setBackgroundImage(assets.image`background1`)
+    scene.setBackgroundImage()
     tiles.setTilemap(tilemap`level1`)
-    mySprite = sprites.create(assets.image`Xialing`, SpriteKind.Player)
+    mySprite = sprites.create(, SpriteKind.Player)
     sprites.add_profile(Choice.xialing)
     mySprite.ay = 500
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
     animation.loopFrames2(
     mySprite,
-    assets.animation`x walk right`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     100,
     characterAnimations.rule(Predicate.MovingRight)
     )
     animation.loopFrames2(
     mySprite,
-    assets.animation`x walk left`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     100,
     characterAnimations.rule(Predicate.MovingLeft)
     )
     animation.loopFrames2(
     mySprite,
-    assets.animation`x jump`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     125,
     characterAnimations.rule(Predicate.MovingUp)
     )
@@ -85,7 +187,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     sprite.destroy()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`door1`, function (sprite, location) {
-    scene.setBackgroundImage(assets.image`background2`)
+    scene.setBackgroundImage()
     tiles.setTilemap(tilemap`level2`)
     animation.runMovementAnimation(
     mySprite,
@@ -100,35 +202,103 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     info.changeLifeBy(-1)
     animation.runImageAnimation(
     mySprite,
-    assets.animation`sc damage`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     200,
     false
     )
 })
 let projectile: Sprite = null
 let mySprite: Sprite = null
-scene.setBackgroundImage(assets.image`background1`)
+scene.setBackgroundImage()
 tiles.setTilemap(tilemap`level1`)
-mySprite = sprites.create(assets.image`Shang-Chi`, SpriteKind.Player)
+mySprite = sprites.create(, SpriteKind.Player)
 sprites.add_profile(Choice.shang)
 mySprite.ay = 500
 scene.cameraFollowSprite(mySprite)
 controller.moveSprite(mySprite, 100, 0)
 animation.loopFrames2(
 mySprite,
-assets.animation`sc walk right`,
+[img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `],
 100,
 characterAnimations.rule(Predicate.MovingRight)
 )
 animation.loopFrames2(
 mySprite,
-assets.animation`sc walk left`,
+[img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `],
 100,
 characterAnimations.rule(Predicate.MovingLeft)
 )
 animation.loopFrames2(
 mySprite,
-assets.animation`sc jump`,
+[img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `],
 125,
 characterAnimations.rule(Predicate.MovingUp)
 )
